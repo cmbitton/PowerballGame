@@ -6,12 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="./script.js"></script>
+    <script src="./script.js" defer></script>
     <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
     <h1>Lottery Game</h1>
+    <h2 class="bank"></h2>
+    <div class="add-money-container">
+        <input type="number" class="add-money">
+        <button class="bank-button">Add Money to Bank</button>
+    </div>
     <div class="user-numbers">
         <div class="numcard">
             <p>Num1</p>
@@ -34,7 +39,10 @@
             <input class="usernumber" type="number" min="1" max="70">
         </div>
     </div>
-    <button>Play</button>
+    <button class="play-button">Play One Game</button>
+    <button class="play-multiple-button">Play until bank is empty (No Reinvesting)</button>
+    <p class="info-screen"></p>
+    <p class="winning-numbers"></p>
 </body>
 
 </html>
