@@ -86,6 +86,7 @@ function playSingleGame() {
             errorScreen.textContent = `Matching Numbers: ${matchingNumbers.join(' ')}`;
             winningNumOutput.textContent = `Winning Numbers: ${winningNumbers.join(' ')}`;
             bankAmount -= 2;
+            bank.textContent = `Bank: $${bankAmount}`;
         }
     }
 }
