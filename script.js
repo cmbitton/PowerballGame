@@ -112,9 +112,9 @@ const scoreboard = {
         const totalGames = document.querySelector('.total-games');
         const totalGamesWon = document.querySelector('.total-games-won');
         const totalGamesLost = document.querySelector('.total-games-lost');
-        dollarsWon.textContent = `${this.totalDollarsWon}`
-        dollarsLost.textContent = `${this.totalLostGames * 2}`
-        overallWinLoss.textContent = `${this.totalDollarsWon - this.totalLostGames * 2}`
+        dollarsWon.textContent = `$${this.totalDollarsWon}`
+        dollarsLost.textContent = `$${this.totalLostGames * 2}`
+        overallWinLoss.textContent = `$${this.totalDollarsWon - this.totalLostGames * 2}`
         totalGames.textContent = `${this.totalGames}`
         totalGamesWon.textContent = `${this.gamesWon}`
         totalGamesLost.textContent = `${this.totalLostGames}`
@@ -123,9 +123,12 @@ const scoreboard = {
 }
 function addMoneyToBank() {
     const addedMoney = document.querySelector('.add-money');
-    if (addedMoney.value !== '') {
+    if (addedMoney.value !== '' && addedMoney.value > 0 && addedMoney.value <= 1000000) {
         bankAmount += parseInt(addedMoney.value);
         bank.textContent = `Bank: $${bankAmount}`;
+    }
+    else{
+        errorScreen.textContent = 'You must input a valid number between 1 and 1 million when adding money to the Bank';
     }
 }
 
@@ -153,7 +156,7 @@ function checkNums(numSet) {
     }
     else {
         for (const number of numSet) {
-            if (number > 70 || number < 1) {
+            if (number > 69 || number < 1) {
                 return false;
             }
         }
@@ -163,7 +166,7 @@ function checkNums(numSet) {
 
 function createLotteryNumberOptions() {
     const numberOptions = [];
-    for (let i = 1; i <= 70; i++) {
+    for (let i = 1; i <= 69; i++) {
         numberOptions.push(i);
     }
     return numberOptions;
@@ -220,7 +223,7 @@ function playSingleGame() {
     const userNums = getUserNums();
     const userPowerball = getUserPowerball();
     if (checkNums(userNums) === false || userPowerball === false) {
-        errorScreen.textContent = 'You must input 5 different numbers between 1 and 70 and a Powerball between 1 and 26'
+        errorScreen.textContent = 'You must input 5 different numbers between 1 and 69 and a Powerball between 1 and 26'
         winningNumOutput.textContent = '';
     }
     else {
@@ -229,7 +232,6 @@ function playSingleGame() {
         }
         else {
             playRound(userNums, userPowerball);
-            scoreboard.calculatePayout(matchingNumbers, userPowerball, winningPowerball);
             scoreboard.displayInfo();
         }
     }
@@ -239,7 +241,7 @@ function playMultipleGames() {
     const userNums = getUserNums();
     const userPowerball = getUserPowerball();
     if (checkNums(userNums) === false || userPowerball === false) {
-        errorScreen.textContent = 'You must input 5 different numbers between 1 and 70 and 70 and a Powerball between 1 and 26'
+        errorScreen.textContent = 'You must input 5 different numbers between 1 and 69 and a Powerball between 1 and 26'
         winningNumOutput.textContent = '';
     }
     else {

@@ -24,6 +24,8 @@ input[type=number]::-webkit-inner-spin-button {
 
 input[type=number] {
     -moz-appearance:textfield;
+    text-align: center;
+    font-size: 20px;
 }
 
 .user-numbers{
@@ -32,11 +34,94 @@ input[type=number] {
     column-gap: 30px;
 }
 
-.play-button {
-    margin-top: 50px;
-}
 
 .info-panel {
     display: flex;
     column-gap: 100px;
+    justify-content: center;
+}
+
+.powerball-logo{
+    width: 250px;
+    margin-top: 20px;
+}
+
+.bank-button{
+    border: thin solid rgba(0, 0, 0, 0.849);
+    border-radius: 10px;
+    padding: 15px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    color: rgb(37, 37, 37);
+    margin-left: 25px;
+    background-color: rgba(59, 255, 59, 0.705);
+    transition: all 0.3s ease-in-out;
+}
+
+.bank-button:hover, .play-button:hover, .play-multiple-button:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.user-numbers-heading{
+    font-size: 24px;
+    margin-top: 50px;
+
+}
+.numcard{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50px;
+}
+.usernumber{
+    background-color: bisque;
+}
+.user-number-powerball{
+    background-color: lightcoral;
+}
+.usernumber, .user-number-powerball {
+    width: 50px;
+    border: thin solid gray;
+    border-radius: 50%;
+    height: 50px;
+}
+
+
+.play-button, .play-multiple-button{
+    border: thin solid rgba(0, 0, 0, 0.849);
+    border-radius: 10px;
+    padding: 15px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    color: rgb(37, 37, 37);
+    background-color: gold;
+    transition: all 0.3s ease-in-out;
+}
+
+.game-container{
+    display: flex;
+    align-items: flex-start;
+    column-gap: 100px;
+}
+
+.right-side-container{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.current-game-info-heading{
+    font-size: 24px;
+}
+
+.current-info-container, .info-panel{
+    width: 500px;
+}
+.play-button-container{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
 }
