@@ -23,7 +23,7 @@ function getUserPowerball(){
         return false;
     }
     else{
-        return userPowerball;
+        return parseInt(userPowerball);
     }
 }
 
@@ -57,6 +57,18 @@ function createLotteryNumberOptions() {
     return numberOptions;
 }
 
+function createPowerball(){
+    return (Math.floor(Math.random() * 26) + 1);
+}
+
+function checkPowerballs(userPowerball, winningPowerball){
+    if (userPowerball === winningPowerball){
+        return true;
+    }
+    else {
+        return false;
+    }
+}
 function createWinningTicket(possibleNumbers) {
     const winningTicket = [];
     for (let i = 0; i < 5; i++) {
@@ -78,12 +90,14 @@ function checkMatches(userNumbers, winningNumbers) {
     return matchingNumbers;
 }
 
-function playRound(usernumbers){
+function playRound(usernumbers, userPowerball){
     const lottoNumberList = createLotteryNumberOptions();
     const winningNumbers = createWinningTicket(lottoNumberList);
     const matchingNumbers = checkMatches(usernumbers, winningNumbers);
-    errorScreen.textContent = `Matching Numbers: ${matchingNumbers.join(' ')}`;
-    winningNumOutput.textContent = `Winning Numbers: ${winningNumbers.join(' ')}`;
+    const winningPowerball = createPowerball();
+    const matchingPowerballs = checkPowerballs(userPowerball, winningPowerball)
+    errorScreen.textContent = `Matching Numbers: ${matchingNumbers.join(' ')} Matched Powerball: ${matchingPowerballs}`;
+    winningNumOutput.textContent = `Winning Numbers: ${winningNumbers.join(' ')} Powerball: ${winningPowerball}`;
     bankAmount -= 2;
     bank.textContent = `Bank: $${bankAmount}`;
 }
@@ -91,7 +105,8 @@ function playRound(usernumbers){
 
 function playSingleGame() {
     const userNums = getUserNums();
-    if (checkNums(userNums) === false || getUserPowerball() === false) {
+    const userPowerball = getUserPowerball();
+    if (checkNums(userNums) === false || userPowerball === false) {
         errorScreen.textContent = 'You must input 5 different numbers between 1 and 70 and a Powerball between 1 and 26'
         winningNumOutput.textContent = '';
     }
@@ -100,7 +115,7 @@ function playSingleGame() {
             errorScreen.textContent = 'Not enough money in Bank';
         }
         else {
-            playRound(userNums);
+            playRound(userNums, userPowerball);
         }
     }
 }
