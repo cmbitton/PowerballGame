@@ -69,6 +69,17 @@ function checkMatches(userNumbers, winningNumbers) {
     return matchingNumbers;
 }
 
+function playRound(usernumbers){
+    const lottoNumberList = createLotteryNumberOptions();
+    const winningNumbers = createWinningTicket(lottoNumberList);
+    const matchingNumbers = checkMatches(usernumbers, winningNumbers);
+    errorScreen.textContent = `Matching Numbers: ${matchingNumbers.join(' ')}`;
+    winningNumOutput.textContent = `Winning Numbers: ${winningNumbers.join(' ')}`;
+    bankAmount -= 2;
+    bank.textContent = `Bank: $${bankAmount}`;
+}
+
+
 function playSingleGame() {
     const userNums = getUserNums();
     if (checkNums(userNums) === false) {
@@ -80,13 +91,7 @@ function playSingleGame() {
             errorScreen.textContent = 'Not enough money in Bank';
         }
         else {
-            const lottoNumberList = createLotteryNumberOptions();
-            const winningNumbers = createWinningTicket(lottoNumberList);
-            const matchingNumbers = checkMatches(userNums, winningNumbers);
-            errorScreen.textContent = `Matching Numbers: ${matchingNumbers.join(' ')}`;
-            winningNumOutput.textContent = `Winning Numbers: ${winningNumbers.join(' ')}`;
-            bankAmount -= 2;
-            bank.textContent = `Bank: $${bankAmount}`;
+            playRound(userNums);
         }
     }
 }
@@ -103,13 +108,7 @@ function playMultipleGames() {
         }
         else {
             for (bankAmount; bankAmount >= 2; bankAmount - 2) {
-                const lottoNumberList = createLotteryNumberOptions();
-                const winningNumbers = createWinningTicket(lottoNumberList);
-                const matchingNumbers = checkMatches(userNums, winningNumbers);
-                errorScreen.textContent = `Matching Numbers: ${matchingNumbers.join(' ')}`;
-                winningNumOutput.textContent = `Winning Numbers: ${winningNumbers.join(' ')}`;
-                bankAmount = bankAmount - 2;
-                bank.textContent = `Bank: ${bankAmount}`;
+                playRound(userNums);
             }
         }
     }
