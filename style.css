@@ -35,3 +35,8 @@ input[type=number] {
 .play-button {
     margin-top: 50px;
 }
+
+.info-panel {
+    display: flex;
+    column-gap: 100px;
+}
