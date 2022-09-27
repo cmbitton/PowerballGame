@@ -122,7 +122,8 @@ function playSingleGame() {
 
 function playMultipleGames() {
     const userNums = getUserNums();
-    if (checkNums(userNums) === false) {
+    const userPowerball = getUserPowerball();
+    if (checkNums(userNums) === false || userPowerball === false) {
         errorScreen.textContent = 'You must input 5 different numbers between 1 and 70 and 70 and a Powerball between 1 and 26'
         winningNumOutput.textContent = '';
     }
@@ -132,7 +133,7 @@ function playMultipleGames() {
         }
         else {
             for (bankAmount; bankAmount >= 2; bankAmount - 2) {
-                playRound(userNums);
+                playRound(userNums, userPowerball);
             }
         }
     }
