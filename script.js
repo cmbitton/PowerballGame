@@ -17,6 +17,15 @@ function addMoneyToBank() {
     }
 }
 
+function getUserPowerball(){
+    const userPowerball = document.querySelector('.user-number-powerball').value;
+    if (userPowerball < 1 || userPowerball > 26 || userPowerball === ''){
+        return false;
+    }
+    else{
+        return userPowerball;
+    }
+}
 
 function getUserNums() {
     const numlist = [...document.querySelectorAll(".usernumber")];
@@ -82,8 +91,8 @@ function playRound(usernumbers){
 
 function playSingleGame() {
     const userNums = getUserNums();
-    if (checkNums(userNums) === false) {
-        errorScreen.textContent = 'You must input 5 different numbers between 1 and 70'
+    if (checkNums(userNums) === false || getUserPowerball() === false) {
+        errorScreen.textContent = 'You must input 5 different numbers between 1 and 70 and a Powerball between 1 and 26'
         winningNumOutput.textContent = '';
     }
     else {
@@ -99,7 +108,7 @@ function playSingleGame() {
 function playMultipleGames() {
     const userNums = getUserNums();
     if (checkNums(userNums) === false) {
-        errorScreen.textContent = 'You must input 5 different numbers between 1 and 70'
+        errorScreen.textContent = 'You must input 5 different numbers between 1 and 70 and 70 and a Powerball between 1 and 26'
         winningNumOutput.textContent = '';
     }
     else {
@@ -115,8 +124,5 @@ function playMultipleGames() {
 }
 
 
-function startGame() {
-    playButton.addEventListener('click', playSingleGame)
-    playMultipleButton.addEventListener('click', playMultipleGames)
-}
-startGame();
+playButton.addEventListener('click', playSingleGame)
+playMultipleButton.addEventListener('click', playMultipleGames)
