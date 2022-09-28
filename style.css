@@ -37,7 +37,7 @@ input[type=number] {
 
 .info-panel {
     display: flex;
-    column-gap: 100px;
+    column-gap: 50px;
     justify-content: center;
 }
 
@@ -115,13 +115,32 @@ input[type=number] {
 
 .current-game-info-heading{
     font-size: 24px;
+    margin-bottom: 0px;
 }
 
 .current-info-container, .info-panel{
-    width: 500px;
+    width: 600px;
 }
 .play-button-container{
     display: flex;
     justify-content: space-between;
     margin-top: 50px;
 }
+/*table settings*/
+.wins-chart, .stats{
+width: 100%;
+border-collapse: collapse;
+border: thin solid gray;
+font-family: 'Raleway', sans-serif;
+}
+td{
+    padding: 3px 10px;
+    letter-spacing: 1px;
+    border: thin solid gray;
+
+}
+th {
+    letter-spacing: 2px;
+    padding: 8px;
+  }
+
