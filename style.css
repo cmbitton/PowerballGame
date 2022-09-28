@@ -2,6 +2,7 @@ body, html {
     box-sizing: border-box;
     height: 100vh;
     width: 100%;
+    margin: 0px;
 }
 
 body {
@@ -103,6 +104,7 @@ input[type=number] {
     display: flex;
     align-items: flex-start;
     column-gap: 100px;
+    flex-wrap: wrap;
 }
 
 .right-side-container{
@@ -144,3 +146,66 @@ th {
     padding: 8px;
   }
 
+
+
+/*Media Queiries*/
+@media screen {
+    @media(max-width: 1150px){
+        .right-side-container{
+            justify-content: flex-start;
+        }
+        .current-info-container{
+            height: 100px;
+        }
+        .game-container{
+            justify-content: center;
+        }
+        .info-screen{
+            text-align: center;
+        }
+    }
+    @media(max-width:600px){
+        .right-side-container{
+            width: 80%;
+        }
+        .info-panel{
+            flex-direction: column;
+            row-gap: 25px;
+        }
+        .current-info-container, .info-panel{
+            width: 80%;
+        }
+        .usernumber, .user-number-powerball{
+            width: 40px;
+            height: 40px;
+        }
+        .user-numbers{
+            column-gap: 10px;
+        }
+        .user-numbers-heading{
+            text-align: center;
+        }
+        .bank{
+            text-align: center;
+        }
+        .add-money-container{
+            display: flex;
+            margin: 15px;
+        }
+        .add-money{
+            width: 50%;
+            height: 25px;
+            align-self: center;
+        }
+        .play-button-container{
+            margin: 40px 20px;
+            gap: 20px;
+        }
+        .current-game-info-heading{
+            margin: 0px;
+        }
+        .info-screen{
+            text-align: center;
+        }
+    }
+}
