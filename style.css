@@ -156,6 +156,7 @@ th {
         }
         .current-info-container{
             height: 100px;
+            text-align: center;
         }
         .game-container{
             justify-content: center;
@@ -206,10 +207,15 @@ th {
         }
         .info-screen{
             text-align: center;
+            white-space: pre-line;
         }
         .numcard{
             width: 40px;
             column-gap: 15px;
         }
+        .current-info-container{
+            height: 130px;
+        }
+
     }
 }

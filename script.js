@@ -24,68 +24,68 @@ const scoreboard = {
     totalLostGames: 0,
     gamesWon: 0,
     totalGames: 0,
-    calculatePayout: function(matchingNumbers, userPowerball, winningPowerball){
-        if (matchingNumbers.length === 0 && userPowerball === winningPowerball){
+    calculatePayout: function (matchingNumbers, userPowerball, winningPowerball) {
+        if (matchingNumbers.length === 0 && userPowerball === winningPowerball) {
             this.matchPowerball += 1;
             this.totalDollarsWon += 4;
-            this.gamesWon +=1;
+            this.gamesWon += 1;
             this.totalGames += 1;
         }
-        else if (matchingNumbers.length === 1 && userPowerball === winningPowerball){
+        else if (matchingNumbers.length === 1 && userPowerball === winningPowerball) {
             this.match1Powerball += 1;
             this.totalDollarsWon += 4;
-            this.gamesWon +=1;
+            this.gamesWon += 1;
             this.totalGames += 1;
         }
-        else if (matchingNumbers.length === 2 && userPowerball === winningPowerball){
+        else if (matchingNumbers.length === 2 && userPowerball === winningPowerball) {
             this.match2Powerball += 1;
             this.totalDollarsWon += 7;
-            this.gamesWon +=1;
+            this.gamesWon += 1;
             this.totalGames += 1;
         }
-        else if (matchingNumbers.length === 3 && userPowerball !== winningPowerball){
+        else if (matchingNumbers.length === 3 && userPowerball !== winningPowerball) {
             this.match3 += 1;
             this.totalDollarsWon += 7;
-            this.gamesWon +=1;
+            this.gamesWon += 1;
             this.totalGames += 1;
         }
-        else if (matchingNumbers.length === 3 && userPowerball === winningPowerball){
+        else if (matchingNumbers.length === 3 && userPowerball === winningPowerball) {
             this.match3Powerball += 1;
             this.totalDollarsWon += 100;
-            this.gamesWon +=1;
+            this.gamesWon += 1;
             this.totalGames += 1;
         }
-        else if (matchingNumbers.length === 4 && userPowerball !== winningPowerball){
+        else if (matchingNumbers.length === 4 && userPowerball !== winningPowerball) {
             this.match4 += 1;
             this.totalDollarsWon += 100;
-            this.gamesWon +=1;
+            this.gamesWon += 1;
             this.totalGames += 1;
         }
-        else if (matchingNumbers.length === 4 && userPowerball === winningPowerball){
+        else if (matchingNumbers.length === 4 && userPowerball === winningPowerball) {
             this.match4Powerball += 1;
             this.totalDollarsWon += 50000;
-            this.gamesWon +=1;
+            this.gamesWon += 1;
             this.totalGames += 1;
         }
-        else if (matchingNumbers.length === 5 && userPowerball !== winningPowerball){
+        else if (matchingNumbers.length === 5 && userPowerball !== winningPowerball) {
             this.match5 += 1;
             this.totalDollarsWon += 1000000;
-            this.gamesWon +=1;
+            this.gamesWon += 1;
             this.totalGames += 1;
         }
-        else if (matchingNumbers.length === 5 && userPowerball === winningPowerball){
+        else if (matchingNumbers.length === 5 && userPowerball === winningPowerball) {
             this.winPowerball += 1;
             this.totalDollarsWon += 100000000;
-            this.gamesWon +=1;
+            this.gamesWon += 1;
             this.totalGames += 1;
         }
-        else{
+        else {
             this.totalLostGames += 1;
             this.totalGames += 1;
         }
 
     },
-    displayInfo: function(){
+    displayInfo: function () {
         const wonPoweball = document.querySelector('.won-powerball');
         const match5 = document.querySelector('.match-5');
         const match4Powerball = document.querySelector('.match-4-powerball');
@@ -118,7 +118,7 @@ const scoreboard = {
         totalGames.textContent = `${this.totalGames}`
         totalGamesWon.textContent = `${this.gamesWon}`
         totalGamesLost.textContent = `${this.totalLostGames}`
-        
+
     }
 }
 function addMoneyToBank() {
@@ -127,17 +127,17 @@ function addMoneyToBank() {
         bankAmount += parseInt(addedMoney.value);
         bank.textContent = `Bank: $${bankAmount}`;
     }
-    else{
+    else {
         errorScreen.textContent = 'You must input a valid number between 1 and 1 million when adding money to the Bank';
     }
 }
 
-function getUserPowerball(){
+function getUserPowerball() {
     const userPowerball = document.querySelector('.user-number-powerball').value;
-    if (userPowerball < 1 || userPowerball > 26 || userPowerball === ''){
+    if (userPowerball < 1 || userPowerball > 26 || userPowerball === '') {
         return false;
     }
-    else{
+    else {
         return parseInt(userPowerball);
     }
 }
@@ -172,12 +172,12 @@ function createLotteryNumberOptions() {
     return numberOptions;
 }
 
-function createPowerball(){
+function createPowerball() {
     return (Math.floor(Math.random() * 26) + 1);
 }
 
-function checkPowerballs(userPowerball, winningPowerball){
-    if (userPowerball === winningPowerball){
+function checkPowerballs(userPowerball, winningPowerball) {
+    if (userPowerball === winningPowerball) {
         return true;
     }
     else {
@@ -205,14 +205,17 @@ function checkMatches(userNumbers, winningNumbers) {
     return matchingNumbers;
 }
 
-function playRound(usernumbers, userPowerball){
+function playRound(usernumbers, userPowerball, SingleGame = false) {
     const lottoNumberList = createLotteryNumberOptions();
     const winningNumbers = createWinningTicket(lottoNumberList);
     const matchingNumbers = checkMatches(usernumbers, winningNumbers);
     const winningPowerball = createPowerball();
     const matchingPowerballs = checkPowerballs(userPowerball, winningPowerball)
-    errorScreen.textContent = `Matching Numbers: ${matchingNumbers.join(' ')} Matched Powerball: ${matchingPowerballs}`;
-    winningNumOutput.textContent = `Winning Numbers: ${winningNumbers.join(' ')} Powerball: ${winningPowerball}`;
+    if (SingleGame === true) {
+        errorScreen.textContent = `Matching Numbers: ${matchingNumbers.join(' ')} 
+                                   Matched Powerball: ${matchingPowerballs}`;
+        winningNumOutput.innerHTML = `Winning Numbers: ${winningNumbers.join(' ')} Powerball: ${winningPowerball}`;
+    }
     bankAmount -= 2;
     bank.textContent = `Bank: $${bankAmount}`;
     scoreboard.calculatePayout(matchingNumbers, userPowerball, winningPowerball);
@@ -229,9 +232,10 @@ function playSingleGame() {
     else {
         if (bankAmount < 2) {
             errorScreen.textContent = 'Not enough money in Bank';
+            winningNumOutput.textContent = '';
         }
         else {
-            playRound(userNums, userPowerball);
+            playRound(userNums, userPowerball, true);
             scoreboard.displayInfo();
         }
     }
@@ -247,12 +251,15 @@ function playMultipleGames() {
     else {
         if (bankAmount < 2) {
             errorScreen.textContent = 'Not enough money in Bank';
+            winningNumOutput.textContent = '';
         }
         else {
             for (bankAmount; bankAmount >= 2; bankAmount - 2) {
                 playRound(userNums, userPowerball);
             }
             scoreboard.displayInfo();
+            errorScreen.textContent = `You played using all the money in your bank. See stats below for game details`;
+            winningNumOutput.textContent = '';
         }
     }
 }
