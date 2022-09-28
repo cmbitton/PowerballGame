@@ -180,7 +180,7 @@ th {
             height: 40px;
         }
         .user-numbers{
-            column-gap: 10px;
+            column-gap: 20px;
         }
         .user-numbers-heading{
             text-align: center;
@@ -206,6 +206,10 @@ th {
         }
         .info-screen{
             text-align: center;
+        }
+        .numcard{
+            width: 40px;
+            column-gap: 15px;
         }
     }
 }
