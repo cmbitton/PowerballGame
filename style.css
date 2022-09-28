@@ -44,9 +44,11 @@ input[type=number] {
 
 .powerball-logo{
     width: 250px;
-    margin-top: 20px;
+    margin-top: 40px;
 }
-
+.bank {
+    margin-bottom: 0px;
+}
 .bank-button{
     border: thin solid rgba(0, 0, 0, 0.849);
     border-radius: 10px;
@@ -66,7 +68,6 @@ input[type=number] {
 
 .user-numbers-heading{
     font-size: 24px;
-    margin-top: 50px;
 
 }
 .numcard{
@@ -105,9 +106,10 @@ input[type=number] {
     align-items: flex-start;
     column-gap: 100px;
     flex-wrap: wrap;
+    margin-top: 30px;
 }
 
-.right-side-container{
+.right-side-container {
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -140,6 +142,7 @@ td{
     letter-spacing: 1px;
     border: thin solid gray;
     font-weight: 500;
+    white-space: pre-line;
 
 }
 th {
@@ -148,6 +151,9 @@ th {
   }
 table{
     background-color: rgba(255, 255, 255, 0.75);
+}
+.stats-header{
+    height: 19px;
 }
 
 
@@ -222,5 +228,13 @@ table{
             height: fit-content;
         }
 
+    }
+    @media (min-width:1150px) {
+        .left-side-container{
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
     }
 }
