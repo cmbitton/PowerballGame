@@ -214,7 +214,7 @@ th {
             column-gap: 15px;
         }
         .current-info-container{
-            height: 130px;
+            height: fit-content;
         }
 
     }
