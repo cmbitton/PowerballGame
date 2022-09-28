@@ -168,6 +168,8 @@ th {
     @media(max-width:600px){
         .right-side-container{
             width: 80%;
+            height: fit-content;
+            margin-bottom: 20px;
         }
         .info-panel{
             flex-direction: column;
