@@ -236,7 +236,7 @@ table{
             align-self: center;
         }
         .play-button-container{
-            margin: 17px;
+            margin: 15px 25px;
             gap: 20px;
         }
         .info-screen{
@@ -252,7 +252,7 @@ table{
         }
         .nums-buttons-container{
             justify-content: space-between;
-            margin: 17px;
+            margin: 15px 25px;
             margin-top: 24px;
         }
 
