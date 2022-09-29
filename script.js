@@ -130,7 +130,7 @@ function addMoneyToBank() {
     const addedMoney = document.querySelector('.add-money');
     if (addedMoney.value !== '' && addedMoney.value > 0 && addedMoney.value <= 1000000) {
         bankAmount += parseInt(addedMoney.value);
-        bank.textContent = `Bank: $${bankAmount}`;
+        bank.textContent = `Bank: $${bankAmount.toLocaleString('en-US')}`;
     }
     else {
         errorScreen.textContent = 'You must input a valid number between 1 and 1 million when adding money to the Bank';
