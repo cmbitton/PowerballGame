@@ -101,15 +101,15 @@ const scoreboard = {
         const match1Powerball = document.querySelector('.match-1-powerball');
         const matchPowerball = document.querySelector('.match-powerball');
 
-        wonPoweball.textContent = `${this.winPowerball}`;
-        match5.textContent = `${this.match5}`;
-        match4Powerball.textContent = `${this.match4Powerball}`;
-        match4.textContent = `${this.match4}`;
-        match3Powerball.textContent = `${this.match3Powerball}`;
-        match3.textContent = `${this.match3}`;
-        match2Powerball.textContent = `${this.match2Powerball}`;
-        match1Powerball.textContent = `${this.match1Powerball}`;
-        matchPowerball.textContent = `${this.matchPowerball}`;
+        wonPoweball.textContent = `${this.winPowerball.toLocaleString('en-US')}`;
+        match5.textContent = `${this.match5.toLocaleString('en-US')}`;
+        match4Powerball.textContent = `${this.match4Powerball.toLocaleString('en-US')}`;
+        match4.textContent = `${this.match4.toLocaleString('en-US')}`;
+        match3Powerball.textContent = `${this.match3Powerball.toLocaleString('en-US')}`;
+        match3.textContent = `${this.match3.toLocaleString('en-US')}`;
+        match2Powerball.textContent = `${this.match2Powerball.toLocaleString('en-US')}`;
+        match1Powerball.textContent = `${this.match1Powerball.toLocaleString('en-US')}`;
+        matchPowerball.textContent = `${this.matchPowerball.toLocaleString('en-US')}`;
 
         const dollarsWon = document.querySelector('.dollars-won');
         const dollarsLost = document.querySelector('.dollars-lost');
@@ -117,12 +117,12 @@ const scoreboard = {
         const totalGames = document.querySelector('.total-games');
         const totalGamesWon = document.querySelector('.total-games-won');
         const totalGamesLost = document.querySelector('.total-games-lost');
-        dollarsWon.textContent = `$${this.totalDollarsWon}`
-        dollarsLost.textContent = `$${this.totalLostGames * 2}`
-        overallWinLoss.textContent = `$${this.totalDollarsWon - this.totalLostGames * 2}`
-        totalGames.textContent = `${this.totalGames}`
-        totalGamesWon.textContent = `${this.gamesWon}`
-        totalGamesLost.textContent = `${this.totalLostGames}`
+        dollarsWon.textContent = `$${this.totalDollarsWon.toLocaleString('en-US')}`
+        dollarsLost.textContent = `$${(this.totalLostGames * 2).toLocaleString('en-US')}`
+        overallWinLoss.textContent = `$${(this.totalDollarsWon - this.totalLostGames * 2).toLocaleString('en-US')}`
+        totalGames.textContent = `${this.totalGames.toLocaleString('en-US')}`
+        totalGamesWon.textContent = `${this.gamesWon.toLocaleString('en-US')}`
+        totalGamesLost.textContent = `${this.totalLostGames.toLocaleString('en-US')}`
 
     }
 }
