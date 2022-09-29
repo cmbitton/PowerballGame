@@ -5,6 +5,11 @@ const winningNumOutput = document.querySelector('.winning-numbers');
 const bank = document.querySelector('.bank');
 let bankAmount = 0;
 bank.textContent = `Bank: $${bankAmount}`;
+//nums buttons for ticket:
+const clearNumsButton = document.querySelector('.clear-nums-button');
+const randomNumsButton = document.querySelector('.random-nums-button');
+clearNumsButton.addEventListener('click', clearNums);
+randomNumsButton.addEventListener('click', generateRandomUserNums)
 //bank buttons:
 const bankButton = document.querySelector('.bank-button');
 bankButton.addEventListener('click', addMoneyToBank);
@@ -150,6 +155,24 @@ function getUserNums() {
     }
     return new Set(userNums);
 }
+function clearNums(){
+    const numlist = [...document.querySelectorAll(".usernumber")];
+    const userPowerball = document.querySelector('.user-number-powerball');
+    userPowerball.value = '';
+    for (let i = 0; i < numlist.length; i++) {
+        numlist[i].value = '';
+    }
+}
+function generateRandomUserNums(){
+    const numlist = [...document.querySelectorAll(".usernumber")];
+    const userPowerball = document.querySelector('.user-number-powerball');
+    const ticket = createWinningTicket(createLotteryNumberOptions());
+    userPowerball.value = createPowerball();
+    for (let i = 0; i < numlist.length; i++) {
+        numlist[i].value = ticket[i];
+    }
+}
+
 function checkNums(numSet) {
     if (numSet.size < 5) {
         return false;

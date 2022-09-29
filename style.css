@@ -46,22 +46,36 @@ input[type=number] {
     width: 250px;
     margin-top: 40px;
 }
-.bank {
-    margin-bottom: 0px;
-}
+
 .bank-button{
-    border: thin solid rgba(0, 0, 0, 0.849);
+    border: thin solid rgba(0, 0, 0);
     border-radius: 10px;
     padding: 15px;
     font-family: 'Raleway', sans-serif;
     font-weight: bold;
     color: rgb(37, 37, 37);
     margin-left: 25px;
-    background-color: rgba(59, 255, 59, 0.705);
+    background-color: rgba(56, 255, 56, 0.9);
     transition: all 0.3s ease-in-out;
 }
-
-.bank-button:hover, .play-button:hover, .play-multiple-button:hover{
+.random-nums-button, .clear-nums-button{
+    border: thin solid rgba(0, 0, 0);
+    border-radius: 10px;
+    padding: 15px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    color: rgb(37, 37, 37);
+    background-color: rgba(255, 142, 66, 0.9);
+    transition: all 0.3s ease-in-out;
+}
+.num-title{
+    margin-top: 0px;
+}
+.nums-buttons-container{
+    display: flex;
+    column-gap: 20px;
+}
+.bank-button:hover, .play-button:hover, .play-multiple-button:hover, .random-nums-button:hover, .clear-nums-button:hover{
     transform: scale(1.05);
     cursor: pointer;
 }
@@ -91,13 +105,13 @@ input[type=number] {
 
 
 .play-button, .play-multiple-button{
-    border: thin solid rgba(0, 0, 0, 0.849);
+    border: thin solid rgba(0, 0, 0);
     border-radius: 10px;
     padding: 15px;
     font-family: 'Raleway', sans-serif;
     font-weight: bold;
     color: rgb(37, 37, 37);
-    background-color: gold;
+    background-color: rgba(255, 217, 0, 0.9);
     transition: all 0.3s ease-in-out;
 }
 
@@ -106,7 +120,7 @@ input[type=number] {
     align-items: flex-start;
     column-gap: 100px;
     flex-wrap: wrap;
-    margin-top: 30px;
+    margin-top: 50px;
 }
 
 .right-side-container {
@@ -128,7 +142,6 @@ input[type=number] {
 .play-button-container{
     display: flex;
     justify-content: space-between;
-    margin-top: 50px;
 }
 /*table settings*/
 .wins-chart, .stats{
@@ -173,6 +186,15 @@ table{
         .info-screen{
             text-align: center;
         }
+        .bank {
+            margin-top: 0px;
+        }
+        .play-button-container{
+            margin-top: 20px;
+        }
+        .nums-buttons-container{
+            margin-top: 24px;
+        }
     }
     @media(max-width:600px){
         .right-side-container{
@@ -186,6 +208,9 @@ table{
         }
         .current-info-container, .info-panel{
             width: 80%;
+        }
+        .current-game-info-heading{
+            margin-top: 0px;
         }
         .usernumber, .user-number-powerball{
             width: 30px;
@@ -203,6 +228,7 @@ table{
         .add-money-container{
             display: flex;
             margin: 15px;
+            justify-content: center;
         }
         .add-money{
             width: 50%;
@@ -210,11 +236,8 @@ table{
             align-self: center;
         }
         .play-button-container{
-            margin: 40px 20px;
+            margin: 15px 10px;
             gap: 20px;
-        }
-        .current-game-info-heading{
-            margin: 0px;
         }
         .info-screen{
             text-align: center;
@@ -227,6 +250,11 @@ table{
         .current-info-container{
             height: fit-content;
         }
+        .nums-buttons-container{
+            justify-content: space-between;
+            margin: 15px 10px;
+            margin-top: 24px;
+        }
 
     }
     @media (min-width:1150px) {
@@ -234,7 +262,27 @@ table{
             height: 100%;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: space-evenly;
+        }
+        .current-game-info-heading{
+            margin: 0px;
+        }
+        .user-numbers-heading{
+            margin: 0px;
+        }
+        .bank {
+            margin: 0px;
+        }
+        .current-info-container{
+            height: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .info-screen{
+            margin-bottom: 0px;
         }
     }
 }
